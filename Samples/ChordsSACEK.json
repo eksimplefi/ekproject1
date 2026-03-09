@@ -10,7 +10,7 @@
     {
       "kind": "main",
       "tag": "com-sample-chorddependency",
-      "url": "https://www.example.com/customwidgets/chord/ChordDependencyWidget.js",
+      "url": "https://github.com/eksimplefi/ekproject1/blob/main/Samples/Chords_main.js",
       "type": "module",
       "integrity": "",
       "ignoreIntegrity": true
@@ -81,6 +81,32 @@
       "descripton": "Fires when a chord or group is clicked; payload contains the selected index or pair."
     }
   },
+  "dataBindings": {
+    "chordData": {
+      "feeds": [
+        {
+          "id": "from",
+          "description": "Source node dimension (e.g. 'Product A')",
+          "type": "dimension"
+        },
+        {
+          "id": "to",
+          "description": "Target node dimension (e.g. 'Product B')", 
+          "type": "dimension"
+        },
+        {
+          "id": "value",
+          "description": "Dependency weight/strength (measure)",
+          "type": "mainStructureMember"
+        }
+      ],
+      "rows": {
+        "min": 1
+      }
+    }
+  },
+
+  
   "imports": [],
   "supportsMobile": true,
   "supportsExport": true
