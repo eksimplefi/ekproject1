@@ -1,0 +1,87 @@
+{
+  "id": "com.sample.chorddependency",
+  "version": "1.0.0",
+  "name": "Chord Dependency Diagram",
+  "description": "D3 chord dependency diagram based on the Observable d3 example.",
+  "newInstancePrefix": "ChordDep",
+  "icon": "https://www.example.com/customwidgets/chord/icon.png",
+  "vendor": "Sample",
+  "webcomponents": [
+    {
+      "kind": "main",
+      "tag": "com-sample-chorddependency",
+      "url": "https://www.example.com/customwidgets/chord/ChordDependencyWidget.js",
+      "type": "module",
+      "integrity": "",
+      "ignoreIntegrity": true
+    }
+  ],
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Title displayed above the chord diagram.",
+      "default": "Chord Dependency Diagram"
+    },
+    "matrix": {
+      "type": "Object<number>",
+      "description": "Adjacency matrix keyed by 'row,col' (e.g. \"0,1\": 5)."
+    },
+    "labels": {
+      "type": "string[]",
+      "description": "Ordered list of node labels corresponding to matrix indices."
+    },
+    "innerRadius": {
+      "type": "number",
+      "description": "Inner radius of the chord diagram in pixels.",
+      "default": 180
+    },
+    "outerRadius": {
+      "type": "number",
+      "description": "Outer radius of the chord diagram in pixels.",
+      "default": 200
+    },
+    "colorScheme": {
+      "type": "string[]",
+      "description": "Array of CSS colors used for the groups.",
+      "default": [
+        "#000000",
+        "#1f77b4",
+        "#ff7f0e",
+        "#2ca02c",
+        "#d62728",
+        "#9467bd",
+        "#8c564b",
+        "#e377c2",
+        "#7f7f7f",
+        "#bcbd22",
+        "#17becf"
+      ]
+    }
+  },
+  "methods": {
+    "setDataFromMatrix": {
+      "description": "Sets labels and matrix from a dense numeric matrix (2D array).",
+      "parameters": [
+        {
+          "name": "labels",
+          "type": "string[]",
+          "description": "Labels for each row/column."
+        },
+        {
+          "name": "matrix",
+          "type": "number[]",
+          "description": "Flattened matrix values (row-major)."
+        }
+      ],
+      "body": "this.labels = labels; var n = labels.length; var obj = {}; for (var r = 0; r < n; r++) { for (var c = 0; c < n; c++) { var v = matrix[r*n + c]; if (v) { obj[r + ',' + c] = v; } } } this.matrix = obj;"
+    }
+  },
+  "events": {
+    "onSelectionChanged": {
+      "descripton": "Fires when a chord or group is clicked; payload contains the selected index or pair."
+    }
+  },
+  "imports": [],
+  "supportsMobile": true,
+  "supportsExport": true
+}
