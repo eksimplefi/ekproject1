@@ -25,7 +25,7 @@ class ChordDependencyWidget extends HTMLElement {
 
   _onD3Loaded(container) {
     container.textContent = "";
-
+/*
     const width = container.clientWidth || 600;
     const height = container.clientHeight || 600;
     const innerRadius = Math.min(width, height) * 0.35;
@@ -106,6 +106,7 @@ class ChordDependencyWidget extends HTMLElement {
           }
         }));
       });
+    */
   }
 
   onCustomWidgetAfterUpdate(changedProps) {}
